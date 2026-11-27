@@ -306,7 +306,7 @@ main > .section, .gallery-hero, .opening, .mobile-menu, .site-footer {
 .site-footer .footer-links { justify-content: flex-start; margin: 18px 0; }
 .site-footer .footer-bottom { border-color: var(--rule); color: var(--soft); }
 
-.work-high-note { --x: 23%; --y: 13%; --w: 7%; --h: 16svh; --z: -70px; --pitch: 11deg; --yaw: 18deg; --roll: -9deg; }
+.work-high-note { --x: 43%; --y: 14%; --w: 7%; --h: 16svh; --z: -70px; --pitch: 11deg; --yaw: 18deg; --roll: -9deg; }
 .work-low-note { --x: 88%; --y: 55%; --w: 8%; --h: 15svh; --z: 42px; --pitch: -10deg; --yaw: -16deg; --roll: 10deg; }
 @media (max-width: 767px) {
   .work-high-note { --x: 51%; --y: 27%; --w: 14%; --h: 10svh; }
