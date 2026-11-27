@@ -383,12 +383,12 @@ main h2,
 
 /* Mitered metal moulding inspired by the original silver frame reference. */
 .gallery-space .floating-work {
-  --frame-size: clamp(5px, .87vw, 14px);
+  --frame-size: clamp(4.5px, .783vw, 12.6px);
   --metal-shadow: #302d28;
   --metal-mid: #6b6458;
   --metal-light: #bdb5a5;
   --bead-spacing: 7px;
-  width: calc(var(--w) * 1.12);
+  width: calc(var(--w) * 1.008);
   transform-style: preserve-3d;
 }
 .gallery-space .floating-work:nth-child(3n + 2) {
@@ -405,7 +405,7 @@ main h2,
 }
 .gallery-space .work-frame {
   position: relative;
-  height: min(calc(var(--h, 21svh) * 1.12), 255px);
+  height: min(calc(var(--h, 21svh) * 1.008), 229.5px);
   padding: var(--frame-size);
   border: 0;
   overflow: visible;
@@ -446,8 +446,8 @@ main h2,
   box-shadow: 0 2px 7px #0007;
 }
 @media (max-width: 767px) {
-  .gallery-space .floating-work { width: calc(var(--w) * 1.06); }
-  .gallery-space .work-frame { height: min(calc(var(--h, 15svh) * 1.06), 16svh); }
+  .gallery-space .floating-work { width: calc(var(--w) * .954); }
+  .gallery-space .work-frame { height: min(calc(var(--h, 15svh) * .954), 14.4svh); }
 }
 @media (prefers-reduced-motion: reduce) {
   .gallery-space .floating-work:is(.has-lifted, :hover, :focus-visible) { --print-depth: 0px; }
