@@ -450,12 +450,12 @@ main h2,
 
 
 /* Size each photographic frame as a whole, without distorting the source. */
-.gallery-space .floating-work { --frame-ratio: 736 / 1318; --frame-ratio-number: .5584; }
-.gallery-space :is(.work-strings, .work-drum, .work-high-note) { --frame-ratio: 690 / 1000; --frame-ratio-number: .69; }
+.gallery-space .floating-work { --frame-ratio: 736 / 1318; --frame-ratio-number: .5584; --frame-visible-width: .92; --frame-visible-height: .787; }
+.gallery-space :is(.work-strings, .work-drum, .work-high-note) { --frame-ratio: 690 / 1000; --frame-ratio-number: .69; --frame-visible-width: .94; --frame-visible-height: .96; }
 .gallery-space :is(.work-orchestra, .work-movement, .work-ballet, .work-rhythm, .work-ensemble) {
-  --frame-ratio: 1166 / 736; --frame-ratio-number: 1.5842;
+  --frame-ratio: 1166 / 736; --frame-ratio-number: 1.5842; --frame-visible-width: 1; --frame-visible-height: .93;
 }
-.gallery-space :is(.work-gesture, .work-low-note) { --frame-ratio: 736 / 1104; --frame-ratio-number: .6667; }
+.gallery-space :is(.work-gesture, .work-low-note) { --frame-ratio: 736 / 1104; --frame-ratio-number: .6667; --frame-visible-width: .86; --frame-visible-height: .949; }
 .gallery-space .work-frame {
   width: min(100%, calc(var(--h, 21svh) * var(--frame-ratio-number)));
   height: auto;
