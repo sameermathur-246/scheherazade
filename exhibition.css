@@ -509,7 +509,7 @@ main h2,
   scale: var(--focus-scale, 1);
   translate: var(--focus-x, 0px) var(--focus-y, 0px);
 }
-.gallery-space .work-frame { transition: transform 1.2s cubic-bezier(.2,.8,.2,1), opacity 1s ease, scale .45s var(--ease), translate .45s var(--ease); }
+.gallery-space .work-frame { transition: transform 1.2s cubic-bezier(.2,.8,.2,1), opacity 1s ease, scale .8s ease-in-out, translate .8s ease-in-out; }
 @media (prefers-reduced-motion: reduce) {
   .gallery-space .floating-work.is-hero-focused .work-frame { scale: 1; translate: none; }
 }

@@ -223,7 +223,7 @@ function sizeFocusedPrint(work) {
  const style = getComputedStyle(work);
  const visibleWidth = frame.offsetWidth * Number(style.getPropertyValue('--frame-visible-width'));
  const visibleHeight = frame.offsetHeight * Number(style.getPropertyValue('--frame-visible-height'));
- const scale = longestEdge / Math.max(visibleWidth, visibleHeight);
+ const scale = Math.min(1.12, Math.max(1.04, longestEdge / Math.max(visibleWidth, visibleHeight)));
  const x = work.offsetLeft + work.offsetWidth / 2;
  const y = work.offsetTop + work.offsetHeight / 2;
  const halfWidth = visibleWidth * scale / 2 + 18;
