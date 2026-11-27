@@ -43,15 +43,15 @@ main h2 { font-size: var(--exhibit-title); line-height: 1.03; letter-spacing: -.
   aspect-ratio: auto;
   border: 1px solid var(--rule);
 }
-.work-orchestra { --x: 4%; --y: 20%; --w: 16%; --h: 20svh; --z: 16px; --pitch: 4deg; --yaw: 13deg; --roll: -6deg; }
-.work-strings { --x: 34%; --y: 14%; --w: 8%; --h: 20svh; --z: -12px; --pitch: -7deg; --yaw: -11deg; --roll: 6deg; }
-.work-ballet { --x: 78%; --y: 26%; --w: 17%; --z: 24px; --pitch: 7deg; --yaw: -14deg; --roll: 5deg; }
+.work-orchestra { --x: 5%; --y: 19%; --w: 16%; --h: 20svh; --z: 16px; --pitch: 4deg; --yaw: 13deg; --roll: -6deg; }
+.work-strings { --x: 31%; --y: 15%; --w: 8%; --h: 20svh; --z: -12px; --pitch: -7deg; --yaw: -11deg; --roll: 6deg; }
+.work-ballet { --x: 77%; --y: 28%; --w: 17%; --z: 24px; --pitch: 7deg; --yaw: -14deg; --roll: 5deg; }
 .work-movement { --x: 8%; --y: 60%; --w: 16%; --h: 23svh; --z: 23px; --pitch: -6deg; --yaw: 13deg; --roll: 6deg; }
 .work-rhythm { --x: 72%; --y: 67%; --w: 17%; --h: 19svh; --z: -9px; --pitch: 8deg; --yaw: 12deg; --roll: -6deg; }
-.work-drum { --x: 54%; --y: 15%; --w: 13%; --h: 13svh; --z: 16px; --pitch: 8deg; --yaw: -14deg; --roll: -5deg; }
+.work-drum { --x: 56%; --y: 16%; --w: 13%; --h: 13svh; --z: 16px; --pitch: 8deg; --yaw: -14deg; --roll: -5deg; }
 .work-voice { --x: 21%; --y: 41%; --w: 9%; --h: 15svh; --z: -18px; --pitch: -7deg; --yaw: 12deg; --roll: 7deg; }
-.work-ensemble { --x: 29%; --y: 74%; --w: 12%; --h: 16svh; --z: 15px; --pitch: 8deg; --yaw: -13deg; --roll: -5deg; }
-.work-gesture { --x: 57%; --y: 77%; --w: 9%; --h: 14svh; --z: -13px; --pitch: -7deg; --yaw: 12deg; --roll: 6deg; }
+.work-ensemble { --x: 27%; --y: 77%; --w: 12%; --h: 16svh; --z: 15px; --pitch: 8deg; --yaw: -13deg; --roll: -5deg; }
+.work-gesture { --x: 57%; --y: 79%; --w: 9%; --h: 14svh; --z: -13px; --pitch: -7deg; --yaw: 12deg; --roll: 6deg; }
 .gallery-hero .hero-statement {
   top: 50%;
   left: 30%;
@@ -174,7 +174,7 @@ a.journal-card:hover img, a.journal-card:focus-visible img { transform: scale(1.
   .work-orchestra { --x: 1%; --y: 17%; --w: 27%; --h: 13svh; }
   .work-strings { --x: 33%; --y: 13%; --w: 19%; --h: 15svh; }
   .work-drum { --x: 58%; --y: 16%; --w: 24%; --h: 9svh; }
-  .work-ballet { --x: 81%; --y: 27%; --w: 19%; --h: 10svh; }
+  .work-ballet { --x: 79%; --y: 28%; --w: 19%; --h: 10svh; }
   .work-voice { --x: 4%; --y: 29%; --w: 17%; --h: 8svh; }
   .work-movement { --x: 3%; --y: 69%; --w: 24%; --h: 14svh; }
   .work-ensemble { --x: 32%; --y: 78%; --w: 22%; --h: 10svh; }
@@ -306,10 +306,10 @@ main > .section, .gallery-hero, .opening, .mobile-menu, .site-footer {
 .site-footer .footer-links { justify-content: flex-start; margin: 18px 0; }
 .site-footer .footer-bottom { border-color: var(--rule); color: var(--soft); }
 
-.work-high-note { --x: 70%; --y: 12%; --w: 7%; --h: 16svh; --z: -70px; --pitch: 11deg; --yaw: 18deg; --roll: -9deg; }
-.work-low-note { --x: 88%; --y: 53%; --w: 8%; --h: 15svh; --z: 42px; --pitch: -10deg; --yaw: -16deg; --roll: 10deg; }
+.work-high-note { --x: 43.5%; --y: 75%; --w: 7%; --h: 16svh; --z: -70px; --pitch: 11deg; --yaw: 18deg; --roll: -9deg; }
+.work-low-note { --x: 88%; --y: 51%; --w: 8%; --h: 15svh; --z: 42px; --pitch: -10deg; --yaw: -16deg; --roll: 10deg; }
 @media (max-width: 767px) {
-  .work-high-note { --x: 83%; --y: 13%; --w: 14%; --h: 10svh; }
+  .work-high-note { --x: 32%; --y: 64%; --w: 14%; --h: 10svh; }
   .work-low-note { --x: 8%; --y: 82%; --w: 15%; --h: 9svh; }
 }
 .journal-card:first-child img { object-position: center 54%; }
