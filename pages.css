@@ -1,0 +1,21 @@
+.inner-page .page-nav { display: flex; flex-wrap: wrap; gap: 16px 30px; align-items: center; padding-block: 22px; border-bottom: 1px solid var(--rule); }
+.page-brand { font: italic 27px var(--font-display); }
+.page-nav nav { display: flex; flex-wrap: wrap; gap: 4px 18px; font: 14px var(--font-sans); }
+.page-nav nav a, .page-nav button { padding-block: 8px; }
+.page-nav button, #query-form button { background: var(--surface); color: var(--text); padding-inline: 12px; }
+.inner-page main { min-height: 70svh; padding-block: clamp(36px, 8vw, 90px); }
+.inner-page h1 { font: 400 clamp(45px, 8vw, 104px)/1 var(--font-display); letter-spacing: -.05em; margin-bottom: 30px; }
+.inner-page h2 { font: 400 clamp(23px, 4vw, 38px)/1.1 var(--font-display); }
+.inner-page main p { margin: 0 0 22px; }
+.page-prose, #query-form { max-width: 660px; }
+.page-prose img { margin-bottom: 24px; max-height: 48svh; object-fit: contain; }
+.page-prose a, .inner-page main > a { text-decoration: underline; text-underline-offset: .25em; }
+.page-note { color: var(--soft); font-size: 15px; }
+.page-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 28px; }
+.page-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.page-grid h2 { margin-top: 12px; }
+#query-form label { display: block; margin-bottom: 18px; }
+#query-form input, #query-form textarea { width: 100%; display: block; padding: 10px; background: var(--surface); color: var(--text); border: 1px solid var(--rule); }
+#query-form textarea { min-height: 120px; }
+#query-form button { padding-block: 12px; border: 1px solid var(--rule); }
+#query-status { margin-top: 16px; }
