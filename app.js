@@ -213,11 +213,35 @@ const heroGallery = $('.gallery-space', galleryHero);
 let hoveredPrint = null;
 let keyboardPrint = null;
 
+let focusedPrint = null;
+
+function sizeFocusedPrint(work) {
+ const frame = $('.work-frame', work);
+ const width = heroGallery.clientWidth;
+ const height = heroGallery.clientHeight;
+ const longestEdge = width < 768 ? Math.min(width * 0.44, 200) : Math.min(width * 0.25, height * 0.45, 340);
+ const scale = longestEdge / Math.max(frame.offsetWidth, frame.offsetHeight);
+ const x = work.offsetLeft + work.offsetWidth / 2;
+ const y = work.offsetTop + work.offsetHeight / 2;
+ const halfWidth = frame.offsetWidth * scale / 2 + 18;
+ const halfHeight = frame.offsetHeight * scale / 2 + 18;
+ work.style.setProperty('--focus-scale', scale);
+ work.style.setProperty('--focus-x', `${Math.min(width - halfWidth, Math.max(halfWidth, x)) - x}px`);
+ work.style.setProperty('--focus-y', `${Math.min(height - halfHeight, Math.max(halfHeight, y)) - y}px`);
+}
+
 function updateHeroFocus() {
  const active = hoveredPrint || keyboardPrint;
+ if (active === focusedPrint) return;
+ focusedPrint = active;
+ if (active) sizeFocusedPrint(active);
  heroGallery.classList.toggle('has-hero-focus', Boolean(active));
  floatingWorks.forEach(work => work.classList.toggle('is-hero-focused', work === active));
 }
+
+window.addEventListener('resize', () => {
+ if (focusedPrint) sizeFocusedPrint(focusedPrint);
+});
 
 floatingWorks.forEach(work => {
  work.addEventListener('pointerenter', event => {
