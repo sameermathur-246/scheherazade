@@ -498,15 +498,18 @@ main h2,
 .stage-copy .text-link { color: inherit; margin-top: 16px; }
 .gallery-space .work-frame img,
 .gallery-space .work-frame::after { transition: filter .3s ease, transform .52s var(--ease); }
-@media (hover: hover) and (pointer: fine) {
-  .gallery-space:has(.floating-work:hover) .floating-work:not(:hover) .work-frame img,
-  .gallery-space:has(.floating-work:hover) .floating-work:not(:hover) .work-frame::after {
-    filter: blur(3px) brightness(.76);
-  }
+.gallery-space.has-hero-focus .floating-work:not(.is-hero-focused) .work-frame img,
+.gallery-space.has-hero-focus .floating-work:not(.is-hero-focused) .work-frame::after {
+  filter: blur(5px) brightness(.79);
 }
-.gallery-space:has(.floating-work:focus-visible) .floating-work:not(:focus-visible) .work-frame img,
-.gallery-space:has(.floating-work:focus-visible) .floating-work:not(:focus-visible) .work-frame::after {
-  filter: blur(3px) brightness(.76);
+.gallery-space .floating-work.is-hero-focused {
+  z-index: 5;
+  scale: 1.13;
+  transition: transform 1.2s cubic-bezier(.2,.8,.2,1), scale .45s var(--ease);
+}
+.gallery-space .floating-work { transition: transform 1.2s cubic-bezier(.2,.8,.2,1), scale .45s var(--ease); }
+@media (prefers-reduced-motion: reduce) {
+  .gallery-space .floating-work.is-hero-focused { scale: 1; }
 }
 .mobile-menu { overflow-y: auto; }
 @media (min-width: 768px) {

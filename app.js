@@ -208,3 +208,33 @@ floatingWorks.forEach(work => {
   // The CSS cutout is available while the image loads or if decoding fails.
  });
 });
+
+const heroGallery = $('.gallery-space', galleryHero);
+let hoveredPrint = null;
+let keyboardPrint = null;
+
+function updateHeroFocus() {
+ const active = hoveredPrint || keyboardPrint;
+ heroGallery.classList.toggle('has-hero-focus', Boolean(active));
+ floatingWorks.forEach(work => work.classList.toggle('is-hero-focused', work === active));
+}
+
+floatingWorks.forEach(work => {
+ work.addEventListener('pointerenter', event => {
+  if (event.pointerType === 'touch') return;
+  hoveredPrint = work;
+  updateHeroFocus();
+ });
+ work.addEventListener('pointerleave', () => {
+  if (hoveredPrint === work) hoveredPrint = null;
+  updateHeroFocus();
+ });
+ work.addEventListener('focus', () => {
+  if (work.matches(':focus-visible')) keyboardPrint = work;
+  updateHeroFocus();
+ });
+ work.addEventListener('blur', () => {
+  if (keyboardPrint === work) keyboardPrint = null;
+  updateHeroFocus();
+ });
+});
