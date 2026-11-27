@@ -48,10 +48,10 @@ main h2 { font-size: var(--exhibit-title); line-height: 1.03; letter-spacing: -.
 .work-ballet { --x: 77%; --y: 28%; --w: 17%; --z: 24px; --pitch: 7deg; --yaw: -14deg; --roll: 5deg; }
 .work-movement { --x: 8%; --y: 60%; --w: 16%; --h: 23svh; --z: 23px; --pitch: -6deg; --yaw: 13deg; --roll: 6deg; }
 .work-rhythm { --x: 71%; --y: 65%; --w: 17%; --h: 19svh; --z: -9px; --pitch: 8deg; --yaw: 12deg; --roll: -6deg; }
-.work-drum { --x: 56%; --y: 16%; --w: 13%; --h: 13svh; --z: 16px; --pitch: 8deg; --yaw: -14deg; --roll: -5deg; }
+.work-drum { --x: 56%; --y: 16%; --w: 13%; --h: 14.5svh; --z: 16px; --pitch: 8deg; --yaw: -14deg; --roll: -5deg; }
 .work-voice { --x: 21%; --y: 41%; --w: 9%; --h: 15svh; --z: -18px; --pitch: -7deg; --yaw: 12deg; --roll: 7deg; }
 .work-ensemble { --x: 29%; --y: 74%; --w: 12%; --h: 16svh; --z: 15px; --pitch: 8deg; --yaw: -13deg; --roll: -5deg; }
-.work-gesture { --x: 55%; --y: 75%; --w: 9%; --h: 14svh; --z: -13px; --pitch: -7deg; --yaw: 12deg; --roll: 6deg; }
+.work-gesture { --x: 54%; --y: 73%; --w: 11.5%; --h: 17svh; --z: -13px; --pitch: -7deg; --yaw: 12deg; --roll: 6deg; }
 .gallery-hero .hero-statement {
   top: 50%;
   left: 30%;
@@ -173,12 +173,12 @@ a.journal-card:hover img, a.journal-card:focus-visible img { transform: scale(1.
   .gallery-space .work-frame { height: min(var(--h), 15svh); }
   .work-orchestra { --x: 1%; --y: 17%; --w: 27%; --h: 13svh; }
   .work-strings { --x: 33%; --y: 13%; --w: 19%; --h: 15svh; }
-  .work-drum { --x: 58%; --y: 16%; --w: 24%; --h: 9svh; }
+  .work-drum { --x: 58%; --y: 16%; --w: 24%; --h: 9.8svh; }
   .work-ballet { --x: 79%; --y: 28%; --w: 19%; --h: 10svh; }
   .work-voice { --x: 4%; --y: 31%; --w: 17%; --h: 8svh; }
   .work-movement { --x: 3%; --y: 69%; --w: 24%; --h: 14svh; }
   .work-ensemble { --x: 32%; --y: 78%; --w: 22%; --h: 10svh; }
-  .work-gesture { --x: 40%; --y: 65%; --w: 20%; --h: 10svh; }
+  .work-gesture { --x: 39%; --y: 64%; --w: 22%; --h: 12.5svh; }
   .work-rhythm { --x: 73%; --y: 73%; --w: 25%; --h: 14svh; }
   .collective-layout { grid-template-columns: 1fr; gap: 22px; }
   .collective-image { justify-self: start; width: 63%; height: min(28svh, 220px); }
@@ -306,11 +306,11 @@ main > .section, .gallery-hero, .opening, .mobile-menu, .site-footer {
 .site-footer .footer-links { justify-content: flex-start; margin: 18px 0; }
 .site-footer .footer-bottom { border-color: var(--rule); color: var(--soft); }
 
-.work-high-note { --x: 43%; --y: 14%; --w: 7%; --h: 16svh; --z: -70px; --pitch: 11deg; --yaw: 18deg; --roll: -9deg; }
-.work-low-note { --x: 88%; --y: 55%; --w: 8%; --h: 15svh; --z: 42px; --pitch: -10deg; --yaw: -16deg; --roll: 10deg; }
+.work-high-note { --x: 42.7%; --y: 14%; --w: 7.8%; --h: 17.3svh; --z: -70px; --pitch: 11deg; --yaw: 18deg; --roll: -9deg; }
+.work-low-note { --x: 87%; --y: 55%; --w: 9%; --h: 16.5svh; --z: 42px; --pitch: -10deg; --yaw: -16deg; --roll: 10deg; }
 @media (max-width: 767px) {
-  .work-high-note { --x: 51%; --y: 27%; --w: 14%; --h: 10svh; }
-  .work-low-note { --x: 8%; --y: 84%; --w: 15%; --h: 9svh; }
+  .work-high-note { --x: 51%; --y: 27%; --w: 15%; --h: 11svh; }
+  .work-low-note { --x: 8%; --y: 84%; --w: 16%; --h: 10svh; }
 }
 .journal-card:first-child img { object-position: center 54%; }
 .journal-card:last-child img { object-position: center 46%; }
