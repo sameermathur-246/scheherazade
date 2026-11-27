@@ -381,27 +381,27 @@ main h2,
 .gallery-hero #hero-title em { font-weight: 300; }
 
 
-/* Mitered metal moulding inspired by the original silver frame reference. */
+/* Dark timber, carved leaf moulding, and worn gilding sit behind the sharp print. */
 .gallery-space .floating-work {
   --frame-size: clamp(4.5px, .783vw, 12.6px);
-  --metal-shadow: #302d28;
-  --metal-mid: #6b6458;
-  --metal-light: #bdb5a5;
-  --bead-spacing: 7px;
+  --wood: #342820;
+  --patina: #66513b;
+  --gilt: #9c8256;
+  --carving-repeat: 12px;
   width: calc(var(--w) * 1.008);
   transform-style: preserve-3d;
 }
 .gallery-space .floating-work:nth-child(3n + 2) {
-  --metal-shadow: #3c2c23;
-  --metal-mid: #735741;
-  --metal-light: #b69872;
-  --bead-spacing: 9px;
+  --wood: #392820;
+  --patina: #76543e;
+  --gilt: #a78359;
+  --carving-repeat: 15px;
 }
 .gallery-space .floating-work:nth-child(3n) {
-  --metal-shadow: #292923;
-  --metal-mid: #646452;
-  --metal-light: #a6a28c;
-  --bead-spacing: 5px;
+  --wood: #282821;
+  --patina: #575043;
+  --gilt: #8a7958;
+  --carving-repeat: 9px;
 }
 .gallery-space .work-frame {
   position: relative;
@@ -410,29 +410,39 @@ main h2,
   border: 0;
   overflow: visible;
   transform-style: preserve-3d;
-  background:
-    conic-gradient(from 45deg, #fff2, #0003 25%, #fff1 25%, #0004 50%, #0002 50%, #fff2 75%, #0002 75%, #fff2),
-    linear-gradient(130deg, var(--metal-light), var(--metal-mid) 30%, var(--metal-shadow) 70%, var(--metal-mid));
-  box-shadow: inset 0 0 0 1px var(--metal-light), inset 0 0 0 3px var(--metal-shadow), 0 9px 19px #0005;
+  background: none;
+  box-shadow: 0 9px 19px #0005;
 }
 .gallery-space .work-frame::before {
-  --bead: radial-gradient(ellipse at 44% 35%, var(--metal-light) 8%, var(--metal-mid) 24%, var(--metal-shadow) 41%, transparent 49%);
+  --leaf-across: radial-gradient(ellipse at 42% 88%, var(--wood) 15%, transparent 18% 25%, var(--gilt) 29%, var(--patina) 39%, var(--wood) 48%, transparent 52%);
+  --leaf-down: radial-gradient(ellipse at 88% 42%, var(--wood) 15%, transparent 18% 25%, var(--gilt) 29%, var(--patina) 39%, var(--wood) 48%, transparent 52%);
   content: "";
   position: absolute;
-  inset: 2px;
+  inset: 0;
+  padding: var(--frame-size);
   pointer-events: none;
   background:
-    var(--bead) top left / var(--bead-spacing) var(--frame-size) repeat-x,
-    var(--bead) bottom left / var(--bead-spacing) var(--frame-size) repeat-x,
-    var(--bead) top left / var(--frame-size) var(--bead-spacing) repeat-y,
-    var(--bead) top right / var(--frame-size) var(--bead-spacing) repeat-y;
+    radial-gradient(ellipse at 14% 10%, #2b2118b3, transparent 32%),
+    radial-gradient(ellipse at 91% 71%, #302216af, transparent 38%),
+    radial-gradient(ellipse at 73% 22%, #d6b27933, transparent 30%),
+    repeating-linear-gradient(112deg, #291c1644 0 1px, transparent 1px 5px, #ffe4b215 5px 6px, transparent 6px 13px),
+    var(--leaf-across) top left / var(--carving-repeat) var(--frame-size) repeat-x,
+    var(--leaf-across) bottom left / var(--carving-repeat) var(--frame-size) repeat-x,
+    var(--leaf-down) top left / var(--frame-size) var(--carving-repeat) repeat-y,
+    var(--leaf-down) top right / var(--frame-size) var(--carving-repeat) repeat-y,
+    conic-gradient(from 45deg, #fff0 0 25%, #21160d66 25% 50%, #fff0 50% 75%, #fff2 75%),
+    linear-gradient(145deg, var(--gilt), var(--patina) 31%, var(--wood) 73%, var(--patina));
+  box-shadow: inset 0 0 0 1px var(--gilt), inset 0 0 0 2px var(--wood);
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  filter: saturate(.78) blur(.35px);
 }
 .gallery-space .work-frame::after {
   content: "";
   position: absolute;
   inset: calc(var(--frame-size) - 1px);
-  border: 1px solid var(--metal-light);
-  box-shadow: 0 0 0 1px var(--metal-shadow);
+  border: 1px solid color-mix(in srgb, var(--gilt) 70%, var(--wood));
+  box-shadow: 0 0 0 1px var(--wood);
+  filter: blur(.3px);
   pointer-events: none;
 }
 .gallery-space .floating-work .work-frame img {
