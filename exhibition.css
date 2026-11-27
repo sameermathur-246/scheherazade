@@ -380,94 +380,78 @@ main h2,
 .journal .journal-caption h3 { font-weight: 400; }
 .gallery-hero #hero-title em { font-weight: 300; }
 
-/* The supplied frame and the photograph occupy separate depth planes. */
-.gallery-space .floating-work,
-.gallery-space .work-frame { transform-style: preserve-3d; }
+
+/* Mitered metal moulding inspired by the original silver frame reference. */
+.gallery-space .floating-work {
+  --frame-size: clamp(5px, .87vw, 14px);
+  --metal-shadow: #302d28;
+  --metal-mid: #6b6458;
+  --metal-light: #bdb5a5;
+  --bead-spacing: 7px;
+  width: calc(var(--w) * 1.12);
+  transform-style: preserve-3d;
+}
+.gallery-space .floating-work:nth-child(3n + 2) {
+  --metal-shadow: #3c2c23;
+  --metal-mid: #735741;
+  --metal-light: #b69872;
+  --bead-spacing: 9px;
+}
+.gallery-space .floating-work:nth-child(3n) {
+  --metal-shadow: #292923;
+  --metal-mid: #646452;
+  --metal-light: #a6a28c;
+  --bead-spacing: 5px;
+}
 .gallery-space .work-frame {
   position: relative;
-  overflow: visible;
+  height: min(calc(var(--h, 21svh) * 1.12), 255px);
+  padding: var(--frame-size);
   border: 0;
-  background: none;
-  box-shadow: none;
+  overflow: visible;
+  transform-style: preserve-3d;
+  background:
+    conic-gradient(from 45deg, #fff2, #0003 25%, #fff1 25%, #0004 50%, #0002 50%, #fff2 75%, #0002 75%, #fff2),
+    linear-gradient(130deg, var(--metal-light), var(--metal-mid) 30%, var(--metal-shadow) 70%, var(--metal-mid));
+  box-shadow: inset 0 0 0 1px var(--metal-light), inset 0 0 0 3px var(--metal-shadow), 0 9px 19px #0005;
 }
-.gallery-space .floating-work .work-frame img {
+.gallery-space .work-frame::before {
+  --bead: radial-gradient(ellipse at 44% 35%, var(--metal-light) 8%, var(--metal-mid) 24%, var(--metal-shadow) 41%, transparent 49%);
+  content: "";
   position: absolute;
-  left: var(--photo-left);
-  top: var(--photo-top);
-  width: var(--photo-width);
-  height: var(--photo-height);
-  transform: translateZ(0);
-  border-radius: var(--photo-radius, 0);
+  inset: 2px;
+  pointer-events: none;
+  background:
+    var(--bead) top left / var(--bead-spacing) var(--frame-size) repeat-x,
+    var(--bead) bottom left / var(--bead-spacing) var(--frame-size) repeat-x,
+    var(--bead) top left / var(--frame-size) var(--bead-spacing) repeat-y,
+    var(--bead) top right / var(--frame-size) var(--bead-spacing) repeat-y;
 }
 .gallery-space .work-frame::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: calc(var(--frame-size) - 1px);
+  border: 1px solid var(--metal-light);
+  box-shadow: 0 0 0 1px var(--metal-shadow);
   pointer-events: none;
-  background: var(--frame-image) center / 100% 100% no-repeat;
-  clip-path: var(--frame-cutout);
-  transform: translateZ(var(--frame-depth, 2px));
-  transition: transform .52s var(--ease);
 }
-.gallery-space .floating-work.has-lifted { --frame-depth: 8px; }
-.gallery-space .floating-work:is(:hover, :focus-visible) { --frame-depth: 24px; }
-
-.gallery-space .floating-work {
-  --frame-image: url("assets/img/hero-frame-19.jpg");
-  --photo-left: 25.4%; --photo-top: 26.3%; --photo-width: 49.3%; --photo-height: 47.1%;
-  --frame-cutout: polygon(evenodd,
-    5% 15%, 23% 15%, 31% 16%, 34% 13%, 40% 15%, 43% 10%, 50% 7%, 56% 10%, 61% 15%, 67% 13%, 71% 16%, 82% 14.6%, 95% 14.6%,
-    95.4% 22%, 90% 31%, 91% 40%, 94% 44%, 96% 51%, 93% 58%, 90% 64%, 91% 69%, 95% 76%, 95% 85.7%,
-    73% 85.7%, 60% 84%, 50% 85.7%, 43% 84%, 31% 85%, 5% 85.7%, 5% 76%, 9% 69%, 9% 62%, 5% 58%, 4% 50%, 8% 42%, 7% 35%, 8% 30%, 5% 30%, 6% 26%, 4.5% 22%, 5% 15%,
-    25.8% 26.5%, 25.8% 73.2%, 74.3% 73.2%, 74.3% 26.5%, 25.8% 26.5%);
+.gallery-space .floating-work .work-frame img {
+  position: relative;
+  transform: translateZ(var(--print-depth, 0px));
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
 }
-.gallery-space :is(.work-strings, .work-drum, .work-high-note) {
-  --frame-image: url("assets/img/hero-frame-00.jpg");
-  --photo-left: 17.7%; --photo-top: 16.2%; --photo-width: 64.4%; --photo-height: 69.8%;
-  --frame-cutout: polygon(evenodd,
-    3.5% 7%, 14% 7%, 23% 11%, 28% 8%, 34% 10%, 40% 4%, 47% 2%, 52% 3.5%, 57% 4%, 65% 5%, 71% 11%, 76% 8%, 82% 11%, 88% 7%, 96% 7%,
-    96.5% 15%, 93% 18%, 96% 23%, 93% 30%, 89% 35%, 88% 39%, 93% 42%, 89% 46%, 93% 52%, 88% 56%, 94% 60%, 89% 66%, 95% 71%, 95% 82%, 93% 87%, 97% 94%, 91% 96%, 84% 93%, 79% 95%, 72% 97%, 62% 97%, 54% 95%, 47% 98%, 35% 97%, 29% 94%, 22% 95%, 14% 93%, 4% 96%, 3% 90%, 7% 86%, 3% 82%, 4% 73%, 9% 67%, 6% 62%, 8% 55%, 6% 50%, 10% 44%, 6% 39%, 10% 33%, 4% 28%, 4% 20%, 7% 15%, 3.5% 12%, 3.5% 7%,
-    18.2% 16.7%, 18.2% 85.5%, 81.6% 85.5%, 81.6% 16.7%, 18.2% 16.7%);
+.gallery-space .floating-work.has-lifted { --print-depth: 6px; }
+.gallery-space .floating-work:is(:hover, :focus-visible) { --print-depth: 15px; }
+.gallery-space .floating-work:is(.has-lifted, :hover, :focus-visible) .work-frame img {
+  box-shadow: 0 2px 7px #0007;
 }
-.gallery-space :is(.work-orchestra, .work-movement, .work-ballet, .work-rhythm, .work-ensemble) {
-  --frame-image: url("assets/img/hero-frame-49.jpg");
-  --photo-left: 18.1%; --photo-top: 16.8%; --photo-width: 66.1%; --photo-height: 66.1%;
-  --photo-radius: 14%;
-  --frame-cutout: polygon(evenodd,
-    16.5% 4.5%, 23% 3.5%, 30% 8%, 73% 8%, 82% 3.5%, 89.5% 4.5%, 90% 14%, 88% 19%, 94% 26%, 94% 36%, 100% 49%, 97% 58%, 93% 64%, 91% 72%, 90% 84%, 89% 95%, 81% 96.5%, 74% 91%, 28% 91%, 21% 96.5%, 16.5% 95%, 17% 86%, 13% 80%, 11% 72%, 7% 65%, 4% 58%, 0 49%, 7% 36%, 9% 27%, 15% 19%, 16.5% 12%, 16.5% 4.5%,
-    28% 17%, 74% 17%, 75% 21%, 78% 21%, 78% 27%, 84% 32%, 84% 67%, 78% 73%, 78% 79%, 74% 82.4%, 29% 82.4%, 25.5% 79%, 25.5% 73%, 18.3% 67%, 18.3% 32%, 25.5% 27%, 25.5% 21%, 28% 21%, 28% 17%);
-}
-.gallery-space :is(.work-gesture, .work-low-note) {
-  --frame-image: url("assets/img/hero-frame-33.jpg");
-  --photo-left: 25.9%; --photo-top: 22.3%; --photo-width: 48.1%; --photo-height: 55.8%;
-  --frame-cutout: polygon(evenodd,
-    9% 11%, 12% 8%, 17% 9%, 22% 12%, 27% 9%, 35% 8%, 41% 9%, 41% 6%, 50.5% 1.7%, 57% 5%, 61% 9%, 70% 8%, 79% 11%, 84% 8%, 90% 9%, 90% 13%, 92% 16%, 89% 24%, 92% 32%, 88% 35%, 90% 43%, 93% 49%, 89% 57%, 92% 64%, 89% 70%, 93% 77%, 91% 83%, 93% 88%, 92% 91%, 85% 92%, 77% 90%, 72% 93%, 57% 93%, 50% 96.6%, 47% 96.6%, 44% 93%, 30% 94%, 23% 91%, 16% 92%, 8% 91%, 7% 85%, 10% 81%, 7% 76%, 8% 69%, 7% 63%, 10% 57%, 8% 52%, 7% 47%, 9% 41%, 12% 37%, 8% 32%, 9% 27%, 8% 20%, 10% 15%, 9% 11%,
-    26.2% 22.6%, 26.2% 77.9%, 73.7% 77.9%, 73.7% 22.6%, 26.2% 22.6%);
+@media (max-width: 767px) {
+  .gallery-space .floating-work { width: calc(var(--w) * 1.06); }
+  .gallery-space .work-frame { height: min(calc(var(--h, 15svh) * 1.06), 16svh); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .gallery-space .floating-work:is(.has-lifted, :hover, :focus-visible) { --frame-depth: 2px; }
+  .gallery-space .floating-work:is(.has-lifted, :hover, :focus-visible) { --print-depth: 0px; }
 }
-
-
-/* Size each photographic frame as a whole, without distorting the source. */
-.gallery-space .floating-work { --frame-ratio: 736 / 1318; --frame-ratio-number: .5584; --frame-visible-width: .92; --frame-visible-height: .787; }
-.gallery-space :is(.work-strings, .work-drum, .work-high-note) { --frame-ratio: 690 / 1000; --frame-ratio-number: .69; --frame-visible-width: .94; --frame-visible-height: .96; }
-.gallery-space :is(.work-orchestra, .work-movement, .work-ballet, .work-rhythm, .work-ensemble) {
-  --frame-ratio: 1166 / 736; --frame-ratio-number: 1.5842; --frame-visible-width: 1; --frame-visible-height: .93;
-}
-.gallery-space :is(.work-gesture, .work-low-note) { --frame-ratio: 736 / 1104; --frame-ratio-number: .6667; --frame-visible-width: .86; --frame-visible-height: .949; }
-.gallery-space .work-frame {
-  width: min(100%, calc(var(--h, 21svh) * var(--frame-ratio-number)));
-  height: auto;
-  aspect-ratio: var(--frame-ratio);
-  margin-inline: auto;
-}
-.gallery-space .floating-work:is(:hover, :focus-visible) .work-frame { box-shadow: none; }
-.gallery-space .work-frame::after {
-  background-size: contain;
-  background-image: var(--clean-frame, var(--frame-image));
-}
-.gallery-space .work-frame.has-clean-frame::after { clip-path: none; }
 
 #collection-dialog {
   width: min(440px, calc(100% - 32px));
@@ -496,23 +480,6 @@ main h2,
 .collection-dialog-copy p { margin: 0; font-size: 16px; line-height: 1.45; }
 
 .stage-copy .text-link { color: inherit; margin-top: 16px; }
-.gallery-space .work-frame img,
-.gallery-space .work-frame::after { transition: filter .3s ease, transform .52s var(--ease); }
-.gallery-space.has-hero-focus .floating-work:not(.is-hero-focused) .work-frame img,
-.gallery-space.has-hero-focus .floating-work:not(.is-hero-focused) .work-frame::after {
-  filter: blur(5px) brightness(.79);
-}
-.gallery-space .floating-work.is-hero-focused {
-  z-index: 5;
-}
-.gallery-space .floating-work.is-hero-focused .work-frame {
-  scale: var(--focus-scale, 1);
-  translate: var(--focus-x, 0px) var(--focus-y, 0px);
-}
-.gallery-space .work-frame { transition: transform 1.2s cubic-bezier(.2,.8,.2,1), opacity 1s ease, scale .8s ease-in-out, translate .8s ease-in-out; }
-@media (prefers-reduced-motion: reduce) {
-  .gallery-space .floating-work.is-hero-focused .work-frame { scale: 1; translate: none; }
-}
 .mobile-menu { overflow-y: auto; }
 @media (min-width: 768px) {
   .desktop-nav { gap: clamp(10px, 2vw, 30px); }
